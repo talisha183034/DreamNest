@@ -38,7 +38,7 @@
     function primaryData(){
       $.ajax({
         type: "GET",
-        url: "http://localhost/rent_house_uiu/backend/api/v1/page-info/abh1522agwe522255hba514125/primay_data",
+        url: "http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/primay_data",
         dataType: "json",
         success: function (response) {
           $("#appName").html(response.adi_data.appName);
@@ -57,7 +57,7 @@
     $("span.nav-link").on("click", function (e) {
        e.preventDefault();
        const link = $(this).attr("id");
-       const url = `http://localhost/rent_house_uiu/backend/api/v1/page-info/abh1522agwe522255hba514125/${link}`;
+       const url = `http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/${link}`;
        $.ajax({
         type: "GET",
         url: url,
@@ -72,7 +72,7 @@
       });
     });
     function loginDiv(link){
-      const url = `http://localhost/rent_house_uiu/backend/api/v1/page-info/abh1522agwe522255hba514125/${link}`;
+      const url = `http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/${link}`;
       $.ajax({
         type: "GET",
         url: url,
@@ -95,7 +95,7 @@
         const accessToken = userData.accessToken;
         const email = userData.email;
 
-        const url = `http://localhost/rent_house_uiu/backend/api/v1/validate_user/abh1522agwe522255hba514125/${accessToken}/${email}`;
+        const url = `http://localhost/soft-eng/DreamNest/backend/api/v1/validate_user/abh1522agwe522255hba514125/${accessToken}/${email}`;
 
         $.ajax({
           type: "GET",

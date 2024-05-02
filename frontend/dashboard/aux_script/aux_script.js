@@ -2,7 +2,7 @@ $(document).ready(function(){
   function primaryData(){
       $.ajax({
         type: "GET",
-        url: "http://localhost/rent_house_uiu/backend/api/v1/page-info/abh1522agwe522255hba514125/primay_data",
+        url: "http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/primay_data",
         dataType: "json",
         success: function (response) {
           $("#title").html(response.adi_data.appName);
@@ -33,7 +33,7 @@ $(document).ready(function(){
     const userData = JSON.parse(localStorage.getItem('homelyAuth'));
     const email = userData.email;
     const accessToken = userData.accessToken;
-    const url = `http://localhost/rent_house_uiu/backend/api/v1/log_out_user/abh1522agwe522255hba514125/${accessToken}/${email}`;
+    const url = `http://localhost/soft-eng/DreamNest/backend/api/v1/log_out_user/abh1522agwe522255hba514125/${accessToken}/${email}`;
 
     $.ajax({
           type: "GET",
