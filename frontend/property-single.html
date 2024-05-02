@@ -210,7 +210,7 @@
         function loadNavbar() {
           $.ajax({
             type: "GET",
-            url: "http://localhost/rent_house_uiu/backend/api/v1/page-info/abh1522agwe522255hba514125/nav",
+            url: "http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/nav",
             dataType: "json",
             success: function (response) {
               $("#title").html(response.adi_data.appName);
@@ -225,7 +225,7 @@
         loadNavbar();
         function LoadData(){
           const productDetails = JSON.parse(localStorage.getItem('NextpathDetails'));
-          const url = `http://localhost/rent_house_uiu/backend/api/v1/fetch_hous_details/abh1522agwe522255hba514125/${productDetails}`;
+          const url = `http://localhost/soft-eng/DreamNest/backend/api/v1/fetch_hous_details/abh1522agwe522255hba514125/${productDetails}`;
           $.ajax({
             type: "GET",
             url: url,
