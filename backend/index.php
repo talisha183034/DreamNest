@@ -35,6 +35,7 @@ $email = $part[8] ?? null;
 
 $pageController = new PageController($token);
 $regUserController = new RegUserController($token, $conn);
+$adminController = new AdminController($token, $userAccessToken, $email, $conn);
 $userController = new UserController($token, $userAccessToken, $email, $conn);
 $defaultPageController = new DefaultPageRouting();
 $errorController = new ErrorController();
@@ -44,7 +45,30 @@ if ($route_path === '' || $route_path === null || is_numeric($route_path)) {
 }elseif ($route_path === 'page-info') {
   $query = $part[7] ?? null;
   $pageController->pageInfo($query);
-} elseif ($route_path === 'submit_login') {
+}  elseif ($route_path === 'fetch_hous_list_price_sort') {
+  $min = $part[7]??100;
+  $max = $part[8]??100;
+  $pageController->fetchHousePriceSort($min,$max);
+} elseif ($route_path === 'fetch_hous_details') {
+  $query = $part[7] ?? 'all';
+  $pageController->fetchHouseDetails($query);
+} elseif ($route_path === 'get_rent') {
+  $json = file_get_contents('php://input');
+  $data = json_decode($json);
+  if ($data === null) {
+    $errorController->notFound();
+  } else {
+    $pageController->saveDataRent($data);
+  }
+} elseif ($route_path === 'get_sale') {
+  $json = file_get_contents('php://input');
+  $data = json_decode($json);
+  if ($data === null) {
+    $errorController->notFound();
+  } else {
+    $pageController->saveDataSale($data);
+  }
+}elseif ($route_path === 'submit_login') {
     $json = file_get_contents('php://input');
     $data = json_decode($json);
     if ($data === null) {
@@ -80,6 +104,40 @@ if ($route_path === '' || $route_path === null || is_numeric($route_path)) {
     $accessToken = $part[7] ?? null;
     $email = $part[8] ?? null;
     $userController->fetchHouseSelect($accessToken, $email);
+  }elseif ($route_path === 'submit_moving_request') {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
+    if ($data === null) {
+      $errorController->notFound();
+    } else {
+      $userController->submitMovingRequest($data);
+    }
+  } elseif ($route_path === 'submit_renovation_request') {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
+    if ($data === null) {
+      $errorController->notFound();
+    } else {
+      $userController->submitRenovationRequest($data);
+    }
+  } elseif ($route_path === 'trx_list_admin') {
+    $accessToken = $part[7] ?? null;
+    $email = $part[8] ?? null;
+    $adminController->fetchTrxTable($accessToken, $email);
+  }elseif($route_path === 'change_user_status_admin'){
+    $accessToken = $part[7] ?? null;
+    $email = $part[8] ?? null;
+    $sl = $part[9] ?? null;
+    $adminController->updateUserList($accessToken, $email,$sl);
+  } elseif ($route_path === 'sattlement_user_admin') {
+    $accessToken = $part[7] ?? null;
+    $email = $part[8] ?? null;
+    $sl = $part[9] ?? null;
+    $adminController->updateTrxSattalement($accessToken, $email, $sl);
+  }elseif($route_path === 'submit_house_builder'){
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
+    $builderController->submitHouseDetails($data);
   } else {
   $errorController->notFound();
 }
