@@ -365,7 +365,7 @@
       function loadNavbar() {
         $.ajax({
           type: "GET",
-          url: "http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/nav",
+          url: "http://localhost/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/nav",
           dataType: "json",
           success: function (response) {
             $("#title").html(response.adi_data.appName);
@@ -382,7 +382,7 @@
         e.preventDefault();
         const link = $(this).attr("id");
         console.log(link);
-        const url = `http://localhost/soft-eng/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/${link}`;
+        const url = `http://localhost/DreamNest/backend/api/v1/page-info/abh1522agwe522255hba514125/${link}`;
         $.ajax({
           type: "GET",
           url: url,
