@@ -223,7 +223,7 @@
         const userData = JSON.parse(localStorage.getItem('homelyAuth'));
         const accessToken = userData.accessToken;
         const email = userData.email;
-        const url = `http://localhost/rent_house_uiu/backend/api/v1/home_decor_fetch_pending_req/abh1522agwe522255hba514125/${accessToken}/${email}`;
+        const url = `http://localhost/DreamNest/backend/api/v1/home_decor_fetch_pending_req/abh1522agwe522255hba514125/${accessToken}/${email}`;
        
          $.ajax({
           type: 'GET',
@@ -244,7 +244,7 @@
         const userData = JSON.parse(localStorage.getItem('homelyAuth'));
         const accessToken = userData.accessToken;
         const email = userData.email;
-        const url = `http://localhost/rent_house_uiu/backend/api/v1/home_decor_job_list/abh1522agwe522255hba514125/${accessToken}/${email}`;
+        const url = `http://localhost/DreamNest/backend/api/v1/home_decor_job_list/abh1522agwe522255hba514125/${accessToken}/${email}`;
         $("#serviseRequestlist").html(loader);
         $.ajax({
           type: 'GET',
@@ -270,7 +270,7 @@
         const email = userData.email;
         const slValue = $(this).data('sl');
         const serviceType = $(this).closest('.card').find('#serviceType').text();
-        const url = `http://localhost/rent_house_uiu/backend/api/v1/home_decor_take_this_job/abh1522agwe522255hba514125/${accessToken}/${email}/${slValue}/${serviceType}`;
+        const url = `http://localhost/DreamNest/backend/api/v1/home_decor_take_this_job/abh1522agwe522255hba514125/${accessToken}/${email}/${slValue}/${serviceType}`;
         $.ajax({
            type: 'GET',
            url: url,
@@ -308,7 +308,7 @@
         const slValue = $('#jobSl').val();
         const jobServiceType = $('#jobServiceType').val();
         const jobServiceCost = $('#jobServiceCost').val();
-        const url = `http://localhost/rent_house_uiu/backend/api/v1/home_decor_job_cost_submit/abh1522agwe522255hba514125/${accessToken}/${email}`;
+        const url = `http://localhost/DreamNest/backend/api/v1/home_decor_job_cost_submit/abh1522agwe522255hba514125/${accessToken}/${email}`;
         const data = JSON.stringify({
            slValue: slValue,
            jobServiceType: jobServiceType,
