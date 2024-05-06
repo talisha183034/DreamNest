@@ -289,7 +289,7 @@ class RegUserController{
   }
 
   public function logOutUser($accessToken, $email){
-    $html = 'C:/xampp/htdocs/rent_house_uiu/frontend/index.html';
+    $html = 'C:/xampp/htdocs/DreamNest/frontend/index.html';
     $getUserQuery = $this->conn->prepare("SELECT * FROM user WHERE email = ? AND access_token = ?");
     $getUserQuery->bind_param("ss", $email, $accessToken);
     $getUserQuery->execute();
